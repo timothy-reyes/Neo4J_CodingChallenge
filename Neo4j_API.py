@@ -17,11 +17,16 @@ def entities():
         driver.close()
 
     if request.method == "PUT":
-        with driver.session() as session:
-            session.write_transaction(add_person, request.args.get("name") , request.args.get("emp_id"))
-        #add_person(driver , request.args.get("name") , request.args.get("emp_id"))
+        try:
+            with driver.session() as session:
+                emp_id = request.args.get("emp_id")
+                name = request.args.get("name")
+                session.write_transaction(add_person, name , emp_id)
+                message = f"Person {emp_id} was created/updated with the name {name}"
+        except:
+            message = "Invalid request params. This PUT request requires a 'name' and an 'emp_id'"
         return {
-            'message': 'This endpoint will create a new person. If the entered emp_id already exists in the database, the name associated to that emp_id will be updated',
+            'message': message,
             'method': request.method,
 		    'body': request.values
         }
@@ -30,7 +35,6 @@ def entities():
     if request.method == "DELETE":
         with driver.session() as session:
             session.write_transaction(delete_persons)
-        #add_person(driver , request.args.get("name") , request.args.get("emp_id"))
         return {
             'message': 'Database Wiped',
             'method': request.method,
