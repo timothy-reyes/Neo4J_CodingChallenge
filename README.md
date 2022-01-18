@@ -5,17 +5,21 @@ Requirements:
  - Active DBMS on neo4j://localhost:7687 
  - Username: neo4j
  - Password: 123456
+
 (Alternatively adjusting the driver config on line 5 of Neo4j_API.py would allow you to use any DBMS of your choosing)
 
 INSTRUCTIONS:
-  1. immediately after cloning the repository, run setup.sh from the repository root directory
-    - sets up python virtual env
-    - activates virtual env
-    - pip installs dependencies 
-    - sets up Flask API environment variable requirements
-    - runs Flask API service
-    If successful, you should see "Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)"
-  2. using your preferred HTTP request method (I used postman for testing) you have access to the following request options
+1. immediately after cloning the repository, run setup.sh from the repository root directory
+
+* sets up python virtual env
+* activates virtual env
+* pip installs dependencies 
+* sets up Flask API environment variable requirements
+* runs Flask API service
+
+If successful, you should see "Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)"
+
+2. using your preferred HTTP request method (I used postman for testing) you have access to the following request options
 
   GET: http://localhost:5000/basic_api/persons
   - get a list of all currently registered persons
