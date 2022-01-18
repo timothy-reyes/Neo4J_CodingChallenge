@@ -2,9 +2,10 @@
 Coding Challenge for Neo4J Interview
 
 Requirements:
- - Active DBMS on neo4j://localhost:7687
+ - Active DBMS on neo4j://localhost:7687 
  - Username: neo4j
  - Password: 123456
+(Alternatively adjusting the driver config on line 5 of Neo4j_API.py would allow you to use any DBMS of your choosing)
 
 INSTRUCTIONS:
   1. immediately after cloning the repository, run setup.sh from the repository root directory
